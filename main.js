@@ -184,6 +184,8 @@ imgInput.addEventListener("change", function() {
     reader.readAsDataURL(this.files[0]);
 })
 
+/////////////////////////////////////////
+
 function createPost() {
     let errorMsg = document.querySelector('.errorMsgHide').classList;
     try {
@@ -203,7 +205,7 @@ function createPost() {
 function newPostJson(image, desc) {
     let newPost = {
         'author': `${profileName}`,
-        'description': 'Köln, NRW',
+        'description': 'Bali, Indonesien',
         'profileImg': 'src/img/profile.jpeg',
         'image': `${image}`,
         'imgDesc': `${desc}`,
@@ -215,4 +217,8 @@ function newPostJson(image, desc) {
     posts.unshift(newPost);
 }
 
-////////////////////////////////////////////////////// SAVE AND LOAD
+////////////////////////////////////////////////////// ALLGEIMEIN
+
+function dontClose(event) {
+    event.stopPropagation();
+}

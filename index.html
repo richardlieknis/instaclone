@@ -125,14 +125,19 @@
         <!-- /* ////////////////////// OVERLAYS //////////////////////  */ -->
         <!-- BEITRAG ERSTELLEN -->
 
-        <div class="overlayBg d-none">
+        <div class="overlayBg d-none" onclick="showCreatePost(false)">
             <div class="closeBtn" onclick="showCreatePost(false)">X</div>
-            <div class="infoBox">
+            <div class="infoBox" onclick="dontClose(event)">
                 <div class="uploadBox">
                     <div class="displayImg"></div>
-                    <form class="formBox">
-                        <input type="file" id="imageInput" accept="image/png, image/jpg, image/jpeg" />
-                    </form>
+                    <label class="formBox">
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/png, image/jpg, image/jpeg"
+              />
+              Upload
+            </label>
                 </div>
                 <div class="errorMsgHide">Bitte ein Bild hochladen!</div>
                 <div class="moreInfoBox">

@@ -7,7 +7,7 @@
 body {
     background-color: #FAFAFA;
     color: var(--darkgray);
-    font-family: 'poppins';
+    font-family: 'roboto';
 }
 
 .maincontainer {
@@ -558,6 +558,17 @@ body {
     border-radius: 5px;
     border: 1px solid var(--lightgray);
     padding: 5px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.formBox {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 .errorMsgHide {
