@@ -74,6 +74,11 @@ function changeProfile() {
     } else renderMyProfile('Manni');
 }
 
+
+function dontClose(event) {
+    event.stopPropagation();
+}
+
 /////////////////////////////////////////////// BUTTON FUNCTIONS
 
 function likePost(i) {
@@ -161,7 +166,7 @@ function lightmode() {
 function showCreatePost(boolean) {
     if (boolean) {
         document.querySelector('.overlayBg').style.display = "flex";
-        document.body.style.overflow = "hidden";
+        document.body.style.overflow = "auto";
     }
     if (!boolean) {
         document.querySelector('.overlayBg').style.display = "none";
@@ -217,8 +222,10 @@ function newPostJson(image, desc) {
     posts.unshift(newPost);
 }
 
-////////////////////////////////////////////////////// ALLGEIMEIN
+////////!SECTION
 
-function dontClose(event) {
-    event.stopPropagation();
+
+function openComments(i) {
+
 }
+////////////////////////////////////////////////////// ALLGEIMEIN

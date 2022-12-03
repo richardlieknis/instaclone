@@ -1,26 +1,26 @@
 @font-face {
     font-family: 'poppins';
-    src: url(src/fonts/Poppins.ttf);
+    src: url(../src/fonts/Poppins.ttf);
 }
 
 @font-face {
     font-family: 'poppins-bold';
-    src: url(src/fonts/Poppins-Medium.ttf);
+    src: url(../src/fonts/Poppins-Medium.ttf);
 }
 
 @font-face {
     font-family: 'insta';
-    src: url(src/fonts/insta.otf);
+    src: url(../src/fonts/insta.otf);
 }
 
 @font-face {
     font-family: 'circ';
-    src: url(src/fonts/circular.otf);
+    src: url(../src/fonts/circular.otf);
 }
 
 @font-face {
     font-family: 'roboto';
-    src: url(src/fonts/roboto.ttf);
+    src: url(../src/fonts/roboto.ttf);
 }
 
 @media (max-width: 1070px) {

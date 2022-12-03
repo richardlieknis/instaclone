@@ -9,7 +9,12 @@ function cardTemp(i) {
                 <span style="font-size: 11px">${posts[i].description}</span>
             </div>
         </div>
-        <div class="right">⦁⦁⦁</div>
+        <div class="right" onclick="cardSettings(${i})">⦁⦁⦁
+            <div class="dropdownCard">
+                <div class="cardMenuBtn">LÖSCHEN</div>
+                <div class="cardMenuBtn">TEILEN</div>
+            </div>
+        </div>
     </div>
     <div class="cardImg">
         <img src="${posts[i].image}" width="100%" />
@@ -35,7 +40,7 @@ function cardTemp(i) {
         </div>
     </div>
     <div class="cardComm flexCol">
-        <span class="allComms"> Alle ${Math.floor(Math.random()*200)} Kommentare ansehen</span>
+        <span class="allComms" onclick="openComments(${i})"> Alle ${posts[i].comments.length} Kommentare ansehen</span>
         <div id="allComments${i}">
             <div id="commentsDiv${i}">
             </div>
