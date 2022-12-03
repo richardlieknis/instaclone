@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'poppins';
+    src: url(src/fonts/Poppins.ttf);
+}
+
+@font-face {
+    font-family: 'poppins-bold';
+    src: url(src/fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'insta';
+    src: url(src/fonts/insta.otf);
+}
+
+@font-face {
+    font-family: 'circ';
+    src: url(src/fonts/circular.otf);
+}
+
+@font-face {
+    font-family: 'roboto';
+    src: url(src/fonts/roboto.ttf);
+}
+
+@media (max-width: 1070px) {
+    .rightPanel {
+        display: none;
+    }
+}
+
+@media (max-width: 730px) {
+    .leftPanel span {
+        display: none;
+    }
+    .leftPanel {
+        width: 80px;
+        display: flex;
+        align-items: center;
+        padding-top: 200px;
+        transition: all 225ms ease-in-out;
+    }
+    .midRightContainer {
+        padding-left: 80px;
+    }
+    .logo {
+        display: none;
+        background-image: url(src/img/insta-logo.png);
+    }
+}
+
+@media (max-width: 560px) {
+    .card:last-child {
+        margin-bottom: 70px;
+    }
+    .midRightContainer {
+        padding-top: 50px;
+    }
+    .leftPanel {
+        display: none;
+    }
+    .midRightContainer {
+        padding-left: 0px;
+    }
+    .header {
+        display: flex;
+    }
+    .footer {
+        display: flex;
+    }
+    .infoBox {
+        width: 400px;
+    }
+    .displayImg img {
+        width: 350px;
+        max-height: 380px;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 470px) {
+    .card {
+        width: 330px;
+    }
+    .descText {
+        max-width: 250px;
+    }
+}

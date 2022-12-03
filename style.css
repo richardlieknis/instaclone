@@ -1,0 +1,575 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FAFAFA;
+    color: var(--darkgray);
+    font-family: 'poppins';
+}
+
+.maincontainer {
+    display: flex;
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    --white: #fff;
+    --darkgray: #333;
+    --lightgray: #ddd;
+    --navBg: #fafafa;
+}
+
+.d-none {
+    display: none;
+}
+
+
+/* ///////////////////////// NAVIGATION /////////////////////////  */
+
+.leftPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    color: var(--darkgray);
+    padding: 10px;
+    width: 250px;
+    height: 100vh;
+    border-right: 1px solid var(--lightgray);
+    font-family: 'poppins';
+    font-size: 14px;
+}
+
+.leftPanel .logo {
+    font-family: 'insta';
+    font-size: 28px;
+    margin: 20px 0 50px 15px;
+}
+
+.navi {
+    width: 100%;
+}
+
+.navBtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.navBtn:hover {
+    background-color: var(--navBg);
+}
+
+.navImg {
+    width: 24px;
+}
+
+
+/* MENÜ DROPDOWN */
+
+.optionsMenu {
+    bottom: 0;
+}
+
+.dropmenu {
+    position: relative;
+    display: inline-block;
+}
+
+.optDropdown {
+    display: none;
+    position: absolute;
+    top: -95px;
+    left: 20px;
+    background-color: var(--white);
+    border: 1px solid var(--lightgray);
+    border-radius: 12px;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.menuBtn {
+    border-bottom: 1px solid var(--lightgray);
+    padding: 5px 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.menuBtn:hover {
+    background-color: var(--navBg);
+}
+
+.menuBtn:first-child {
+    border-radius: 12px 12px 0 0;
+}
+
+.menuBtn:last-child {
+    border-radius: 0 0 12px 12px;
+}
+
+.menuBtn:last-child {
+    border-bottom: unset;
+}
+
+.dropmenu:hover .optDropdown {
+    display: block;
+}
+
+
+/* ///////////////////////// MID PANEL /////////////////////////  */
+
+.midRightContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 20px;
+    padding-left: 250px;
+}
+
+.midPanel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/* ///////////////////////// STORY CONTENT /////////////////////////  */
+
+.storyPanel {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--lightgray);
+    background-color: var(--white);
+    width: 100%;
+    border-radius: 6px;
+}
+
+.storyProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.imgBgStory {
+    background: linear-gradient(45deg, rgb(255, 208, 0), rgb(255, 51, 0), rgb(247, 0, 226));
+    padding: 2px;
+    display: flex;
+    border-radius: 100%;
+}
+
+
+/* ///////////////////////// MAIN CONTENT /////////////////////////  */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    min-height: 300px;
+    background-color: var(--white);
+    border: 1px solid var(--lightgray);
+    border-radius: 6px;
+    font-family: 'poppins-bold';
+    margin-bottom: 20px;
+}
+
+.card .cardImg {
+    width: 100%;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--lightgray);
+}
+
+.cardHeader .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cardHeader .right {
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cardBtns {
+    display: flex;
+    justify-content: space-between;
+    padding: 3px 10px;
+}
+
+.cardBtns .left {
+    display: flex;
+    height: 100%;
+    gap: 12px;
+}
+
+.cardBtns img {
+    width: 23px;
+    cursor: pointer;
+}
+
+.cardBtns img:hover {
+    filter: invert(0.25);
+}
+
+.cardLikes,
+.cardDesc,
+.cardComm,
+.cardPost {
+    display: flex;
+    align-items: baseline;
+    padding: 4px 10px;
+    font-family: 'circ';
+    font-size: 14px;
+    color: var(--darkgray);
+    gap: 15px;
+}
+
+.cardComm .allComms {
+    color: #ababab;
+    font-family: sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    line-height: 0px;
+    margin-top: 15px;
+}
+
+.cardPost {
+    display: flex;
+    justify-content: space-between;
+    min-height: 40px;
+    max-height: 350px;
+    border-top: 1px solid var(--lightgray);
+}
+
+.cardPost button {
+    background-color: unset;
+    border: unset;
+    font-weight: bold;
+    color: #0095F6;
+    cursor: pointer;
+}
+
+.cardPost input {
+    width: 100%;
+    font-size: 14px;
+    font-family: sans-serif;
+    resize: none;
+    outline: unset;
+    border: unset;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.cardPost div {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.cardPost form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.cardLikes {
+    display: flex;
+    gap: 3px;
+}
+
+.descText {
+    font-family: sans-serif;
+    font-size: 13px;
+    word-wrap: break-word;
+    max-width: 370px;
+}
+
+.comments {
+    margin-bottom: 3px;
+    display: flex;
+    gap: 10px;
+}
+
+.inputBox {
+    background-color: var(--white);
+    color: var(--darkgray);
+}
+
+
+/* ///////////////////////// RIGHT PANEL /////////////////////////  */
+
+.rightPanel {
+    min-width: 300px;
+    padding: 15px 10px;
+    margin-left: 15px;
+    margin-top: 20px;
+    font-family: 'circ';
+    font-size: 13px;
+}
+
+.myProfile,
+.othersProfile {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.myProfile div,
+.othersProfile div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.othersProfile {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sugProfile {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.suggest {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    margin-top: 20px;
+}
+
+.suggest span:nth-child(1) {
+    font-size: 15px;
+    color: #939393;
+}
+
+.profileLink {
+    width: 50px;
+    color: #0095F6;
+    cursor: pointer;
+    user-select: none;
+    text-align: right;
+}
+
+.mergeProfil {
+    width: 200px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    line-height: 8px;
+}
+
+.mergeProfil span {
+    display: flex;
+    text-align: left;
+    width: 100%;
+}
+
+
+/* ///////////////////////// IMAGES (PROFILE) /////////////////////////  */
+
+.profileImg {
+    width: 24px;
+    border-radius: 100%;
+}
+
+
+/* ///////////////////////// MOBILE NAVIGATION /////////////////////////  */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 52px;
+    background-color: var(--white);
+    border-top: 1px solid var(--lightgray);
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1;
+}
+
+.footer .nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.footer ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
+
+.footer .nav .navBtn {
+    padding: unset;
+    display: flex;
+    align-items: center;
+    gap: unset;
+    margin-bottom: unset;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+/* HEADER */
+
+.header {
+    position: fixed;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--lightgray);
+    height: 45px;
+    width: 100%;
+    display: none;
+    align-items: center;
+    padding-left: 25px;
+    font-family: 'insta';
+    font-size: 32px;
+    z-index: 1;
+}
+
+
+/* ///////////////////////// OVERLAY BOXEN /////////////////////////  */
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: var(--white);
+    background-color: var(--darkgray);
+    padding: 10px 17px;
+    border-radius: 10px;
+}
+
+.overlayBg {
+    position: fixed;
+    background-color: #1119;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.overlayBg h3 {
+    color: var(--white);
+    font-weight: 500;
+}
+
+.displayImg img {
+    width: 450px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+}
+
+.infoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--navBg);
+    min-height: 350px;
+    width: 500px;
+    padding: 15px;
+    border-radius: 6px;
+    z-index: 25;
+}
+
+.uploadBox,
+.moreInfoBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.uploadBox {
+    min-height: 350px;
+}
+
+.uploadBox input {
+    margin-bottom: 10px;
+}
+
+.moreInfoBox {
+    min-height: 100px;
+}
+
+.overlayBg button {
+    background-color: var(--white);
+    padding: 3px 6px;
+    color: var(--darkgray);
+    border: 1px solid var(--lightgray);
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.overlayBg button:hover {
+    background-color: var(--navBg);
+    cursor: pointer;
+}
+
+.overlayBg textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid var(--lightgray);
+    padding: 5px;
+}
+
+.errorMsgHide {
+    display: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #f00;
+    transition: all 300ms ease-in-out;
+}
+
+.errorMsgShow {
+    display: block !important;
+}

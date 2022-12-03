@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instaclone</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mobile.css" />
+</head>
+
+<body onload="renderContent()">
+    <div class="maincontainer">
+        <!-- /* //////////////////// MOBILE PANELS ////////////////////  */ -->
+
+        <div class="header">
+            <span>Instaclone</span>
+        </div>
+
+        <div class="footer">
+            <div class="nav">
+                <ul>
+                    <li class="navBtn">
+                        <img class="navImg setInvert" src="src/img/home.png" />
+                    </li>
+                    <li class="navBtn">
+                        <img class="navImg setInvert" src="src/img/compass.png" />
+                    </li>
+                    <li class="navBtn" onclick="showCreatePost(true)">
+                        <img class="navImg setInvert" src="src/img/plus.png" />
+                    </li>
+                    <li class="navBtn">
+                        <img class="navImg setInvert" src="src/img/message.png" />
+                    </li>
+                    <li class="navBtn">
+                        <img class="profileImg" src="src/img/profile.jpeg" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- /* //////////////////// LEFT PANEL / NAVIGATION ////////////////////  */ -->
+        <div class="leftPanel">
+            <div>
+                <div class="logo">Instaclone</div>
+                <div class="navi">
+                    <ul>
+                        <li class="navBtn">
+                            <img class="navImg setInvert" src="src/img/home.png" onclick="renderContent()" />
+                            <span>Startseite</span>
+                        </li>
+                        <li class="navBtn">
+                            <img class="navImg setInvert" src="src/img/search.png" />
+                            <span>Suche</span>
+                        </li>
+                        <li class="navBtn">
+                            <img class="navImg setInvert" src="src/img/compass.png" />
+                            <span>Entdecken</span>
+                        </li>
+                        <li class="navBtn">
+                            <img class="navImg setInvert" src="src/img/message.png" />
+                            <span>Nachrichten</span>
+                        </li>
+                        <li class="navBtn">
+                            <img class="navImg setInvert" src="src/img/heart_empty.png" />
+                            <span>Benachrichtigungen</span>
+                        </li>
+                        <li class="navBtn" onclick="showCreatePost(true)">
+                            <img class="navImg setInvert" src="src/img/plus.png" />
+                            <span>Erstellen</span>
+                        </li>
+                        <li class="navBtn">
+                            <img class="profileImg" src="src/img/profile.jpeg" />
+                            <span>Profil</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- UNTERER BUTTON - MENÜ -->
+            <div class="dropmenu">
+                <div class="optDropdown">
+                    <div id="pageTheme" class="menuBtn" onclick="pageTheme()">
+                        DarkMode
+                    </div>
+                    <div class="menuBtn">Gespeichertes</div>
+                    <div class="menuBtn">Einstellungen</div>
+                </div>
+                <div class="optionsMenu navBtn">
+                    <img class="navImg setInvert" src="src/img/menu.png" />
+                    <span>Mehr</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- /* ////////////////////// MID PANEL / CONTENT //////////////////////  */ -->
+        <div class="midRightContainer">
+            <div class="midPanel">
+                <div id="storyPanel" class="storyPanel">
+                    <!-- RENDER IN JS -->
+                </div>
+                <!-- CONTENT -->
+                <div id="content" class="content">
+                    <!-- CONTENT - START CARD #+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+-->
+                    <!-- RENDER IN JS -->
+                    <!-- CONTENT - END CARD #+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+#+-->
+                </div>
+            </div>
+
+            <!-- /* ////////////////////// RIGHT PANEL / FOLLOW //////////////////////  */ -->
+            <div class="rightPanel">
+                <div id="myProfile" class="myProfile">
+                    <!-- RENDER IN JS -->
+                </div>
+                <div class="suggest">
+                    <span>Vorschläge für dich</span>
+                    <span style="cursor: pointer">Alle anzeigen</span>
+                </div>
+                <div id="suggestProfiles" class="othersProfile">
+                    <!-- RENDER IN JS -->
+                </div>
+            </div>
+        </div>
+        <!-- /* ////////////////////// OVERLAYS //////////////////////  */ -->
+        <!-- BEITRAG ERSTELLEN -->
+
+        <div class="overlayBg d-none">
+            <div class="closeBtn" onclick="showCreatePost(false)">X</div>
+            <div class="infoBox">
+                <div class="uploadBox">
+                    <div class="displayImg"></div>
+                    <form class="formBox">
+                        <input type="file" id="imageInput" accept="image/png, image/jpg, image/jpeg" />
+                    </form>
+                </div>
+                <div class="errorMsgHide">Bitte ein Bild hochladen!</div>
+                <div class="moreInfoBox">
+                    <textarea id="textInput" placeholder="Beschreibung"></textarea>
+                    <button class="submitInput" onclick="createPost(event)">
+              Beitrag erstellen
+            </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- /* ////////////////////// ENDE //////////////////////  */ -->
+    </div>
+
+    <script src="main.js"></script>
+    <script src="posts.js"></script>
+    <script src="templates.js"></script>
+</body>
+
+</html>
