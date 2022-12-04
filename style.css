@@ -19,6 +19,10 @@ body {
     flex-direction: column;
 }
 
+.deactivated {
+    cursor: not-allowed !important;
+}
+
 :root {
     --white: #fff;
     --darkgray: #333;
@@ -156,6 +160,7 @@ body {
     border: 1px solid var(--lightgray);
     background-color: var(--white);
     width: 100%;
+    min-width: 330px;
     border-radius: 6px;
 }
 
@@ -164,7 +169,6 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 12px;
-    margin: 0 25px 0 25px;
     cursor: pointer;
 }
 

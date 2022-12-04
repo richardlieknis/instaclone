@@ -12,7 +12,7 @@ function cardTemp(i) {
         <div class="right"">⦁⦁⦁
             <div class="dropdownCard">
                 <div class="cardMenuBtn" onclick="deleteCard(${i})">LÖSCHEN</div>
-                <div class="cardMenuBtn">TEILEN</div>
+                <div class="cardMenuBtn deactivated">TEILEN</div>
             </div>
         </div>
     </div>

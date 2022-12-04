@@ -8,6 +8,7 @@ let toggleLike = [];
 let toggleMark = [];
 let toggleThem = false;
 let profileName = 'Manni';
+let currentTheme = lightmode();
 
 function renderContent() {
     content.innerHTML = '';
@@ -34,13 +35,14 @@ function renderStorys() {
     }
 }
 
-function renderCard() {
+function renderCard(markedDel) {
     content.innerHTML = "";
     for (let i = 0; i < posts.length; i++) {
         content.innerHTML += cardTemp(i);
         toggleLike.unshift(false);
         renderComments(i);
     }
+    setTheme();
 }
 
 function renderComments(i) {
@@ -131,12 +133,17 @@ function pageTheme() {
 
     if (toggleThem) {
         pageTheme.innerHTML = 'LightMode';
-        darkmode();
+        currentTheme = darkmode();
     }
     if (!toggleThem) {
         pageTheme.innerHTML = 'DarkMode';
-        lightmode();
+        currentTheme = lightmode();
     }
+}
+
+function setTheme() {
+    if (currentTheme === 'darkmode') { darkmode() }
+    if (currentTheme === 'lightmode') { lightmode() }
 }
 
 function darkmode() {
@@ -149,6 +156,7 @@ function darkmode() {
     setInvert.forEach(e => {
         e.classList.add("invert");
     });
+    return 'darkmode';
 }
 
 function lightmode() {
@@ -161,6 +169,7 @@ function lightmode() {
     setInvert.forEach(e => {
         e.classList.remove("invert");
     });
+    return 'lightmode';
 }
 
 function showCreatePost(boolean) {
@@ -197,12 +206,11 @@ function createPost() {
         let getImage = document.getElementById('getImage');
         let getTxValue = document.getElementById('textInput').value;
         newPostJson(getImage.src, getTxValue);
-        renderCard();
+        renderCard(true);
         showCreatePost(false);
         document.querySelector('.displayImg').innerHTML = "";
         errorMsg.remove('errorMsgShow');
-    } catch (error) {
-        console.error("Bitte Bild einfügen!");
+    } catch (error) {;
         errorMsg.add('errorMsgShow');
     }
 }
@@ -231,7 +239,8 @@ function deleteCard(i) {
 ////////!SECTION
 
 
-function openComments(i) {
-
+function save(name, array) {
+    localStorage.setItem(key, JSON.stringify(array));
+    //TODO - HIER WEITERMACHEN
 }
 ////////////////////////////////////////////////////// ALLGEIMEIN
