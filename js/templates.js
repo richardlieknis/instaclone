@@ -9,9 +9,9 @@ function cardTemp(i) {
                 <span style="font-size: 11px">${posts[i].description}</span>
             </div>
         </div>
-        <div class="right" onclick="cardSettings(${i})">⦁⦁⦁
+        <div class="right"">⦁⦁⦁
             <div class="dropdownCard">
-                <div class="cardMenuBtn">LÖSCHEN</div>
+                <div class="cardMenuBtn" onclick="deleteCard(${i})">LÖSCHEN</div>
                 <div class="cardMenuBtn">TEILEN</div>
             </div>
         </div>

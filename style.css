@@ -120,9 +120,6 @@ body {
 
 .menuBtn:last-child {
     border-radius: 0 0 12px 12px;
-}
-
-.menuBtn:last-child {
     border-bottom: unset;
 }
 
@@ -167,6 +164,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-size: 12px;
+    margin: 0 25px 0 25px;
     cursor: pointer;
 }
 
@@ -218,14 +216,20 @@ body {
     user-select: none;
 }
 
+.cardHeader .right:hover .dropdownCard {
+    display: block;
+}
+
 .cardHeader .right .dropdownCard {
+    display: none;
     position: absolute;
-    width: 160px;
     text-align: center;
+    top: 20px;
+    right: 0px;
     background-color: var(--white);
     border: 1px solid var(--lightgray);
     border-radius: 12px;
-    min-width: 160px;
+    min-width: 120px;
     z-index: 1;
 }
 
@@ -241,6 +245,11 @@ body {
 
 .cardMenuBtn:first-child {
     border-bottom: 1px solid var(--lightgray);
+    border-radius: 12px 12px 0 0;
+}
+
+.cardMenuBtn:last-child {
+    border-radius: 0 0 12px 12px;
 }
 
 .cardBtns {

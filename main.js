@@ -189,7 +189,7 @@ imgInput.addEventListener("change", function() {
     reader.readAsDataURL(this.files[0]);
 })
 
-/////////////////////////////////////////
+///////////////////////////////////////// CREATE & DELETE POST
 
 function createPost() {
     let errorMsg = document.querySelector('.errorMsgHide').classList;
@@ -220,6 +220,12 @@ function newPostJson(image, desc) {
     }
 
     posts.unshift(newPost);
+}
+
+function deleteCard(i) {
+    posts.splice(i, 1);
+    console.log(i);
+    renderCard();
 }
 
 ////////!SECTION
