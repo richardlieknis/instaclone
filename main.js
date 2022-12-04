@@ -12,6 +12,8 @@ let currentTheme = lightmode();
 
 function renderContent() {
     content.innerHTML = '';
+    posts = load('posts');
+
     renderCard();
     renderFollower();
     renderStorys();
@@ -35,7 +37,7 @@ function renderStorys() {
     }
 }
 
-function renderCard(markedDel) {
+function renderCard() {
     content.innerHTML = "";
     for (let i = 0; i < posts.length; i++) {
         content.innerHTML += cardTemp(i);
@@ -66,6 +68,7 @@ function postMsg(id) {
         textareaInput.value = '';
         posts[id].commAuth.push(author);
         posts[id].comments.push(msg);
+        save('posts', posts);
         renderCommsInCard(id, author, msg);
     }
 }
@@ -122,8 +125,10 @@ function follow(id) {
 
     if (follow.innerHTML === 'Folgen') {
         follow.innerHTML = 'Gefolgt';
+        follow.style.color = 'var(--lightgray)';
     } else {
         follow.innerHTML = 'Folgen';
+        follow.style.color = '#0095F6';
     }
 }
 
@@ -206,8 +211,9 @@ function createPost() {
         let getImage = document.getElementById('getImage');
         let getTxValue = document.getElementById('textInput').value;
         newPostJson(getImage.src, getTxValue);
-        renderCard(true);
+        renderCard();
         showCreatePost(false);
+        save('posts', posts);
         document.querySelector('.displayImg').innerHTML = "";
         errorMsg.remove('errorMsgShow');
     } catch (error) {;
@@ -239,8 +245,11 @@ function deleteCard(i) {
 ////////!SECTION
 
 
-function save(name, array) {
-    localStorage.setItem(key, JSON.stringify(array));
-    //TODO - HIER WEITERMACHEN
+function save(keyname, array, i) {
+    localStorage.setItem(keyname, JSON.stringify(array));
+}
+
+function load(keyname) {
+    return JSON.parse(localStorage.getItem(keyname));
 }
 ////////////////////////////////////////////////////// ALLGEIMEIN

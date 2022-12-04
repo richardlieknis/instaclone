@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #FAFAFA;
     color: var(--darkgray);
@@ -73,6 +77,13 @@ body {
     border-radius: 50px;
     cursor: pointer;
     user-select: none;
+}
+
+ul a {
+    text-decoration: unset;
+    color: unset;
+    display: flex;
+    align-items: center;
 }
 
 .navBtn:hover {
