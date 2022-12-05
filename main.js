@@ -75,7 +75,6 @@ function postMsg(id) {
         posts[id].commAuth.push(author);
         posts[id].comments.push(msg);
         save('posts', posts);
-
         renderCard();
     }
 }

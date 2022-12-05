@@ -41,7 +41,7 @@ function cardTemp(i) {
     </div>
     <div class="cardComm flexCol">
         <span class="allComms" onclick="openComments(${i})"> Alle ${posts[i].comments.length} Kommentare ansehen</span>
-        <div id="allComments${i}">
+        <div class="comment" id="allComments${i}">
             <div id="commentsDiv${i}">
             </div>
         </div>
@@ -60,10 +60,19 @@ function cardTemp(i) {
 }
 
 function allCommentsTemp(i, auth, comm) {
-    return `<div id="commentsDiv${i}" class="comments">
-            <span>${auth}</span>
-            <span class="descText">${comm}</span>
-        </div>`;
+    return `<div id="commentsDiv${i}" class="comment">
+                <div class="oneComment">
+                    <div>
+                        <span>${auth}</span>
+                        <span class="descText">${comm}</span>
+                    </div>
+                    <div>
+                        <img class="trashImg" onclick="deleteComment()" src="src/img/trash.png">
+                    </div>
+                </div>
+                
+            </div>
+                `;
 }
 
 function myProfileTemp(name, img) {

@@ -365,15 +365,46 @@ ul a {
     max-width: 370px;
 }
 
-.comments {
+.comment {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.oneComment {
     margin-bottom: 3px;
     display: flex;
+    align-items: center;
+    max-width: 100%;
+    word-wrap: break-word;
     gap: 10px;
+}
+
+.oneComment div:first-child {
+    word-wrap: break-word;
+    width: 93%;
+}
+
+.oneComment div:last-child {
+    display: flex;
+}
+
+.oneComment div img {
+    width: 16px;
 }
 
 .inputBox {
     background-color: var(--white);
     color: var(--darkgray);
+}
+
+.trashImg {
+    cursor: pointer;
+    scale: 0.9;
+}
+
+.trashImg:hover {
+    scale: 0.95;
 }
 
 
