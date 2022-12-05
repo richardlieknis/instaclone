@@ -72,6 +72,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
     margin-bottom: 20px;
     padding: 10px 15px;
     border-radius: 50px;
@@ -285,7 +286,7 @@ ul a {
     cursor: pointer;
 }
 
-.cardBtns img:hover {
+.cardBtns img :hover {
     filter: invert(0.25);
 }
 

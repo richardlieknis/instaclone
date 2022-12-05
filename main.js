@@ -4,7 +4,7 @@ const myProfile = document.getElementById('myProfile');
 const content = document.getElementById('content');
 
 
-let toggleLike = [];
+//let toggleLike = [];
 let toggleMark = [];
 let toggleThem = false;
 let profileName = 'Manni';
@@ -12,18 +12,19 @@ let currentTheme = lightmode();
 
 function renderContent() {
     content.innerHTML = '';
-    posts = load('posts');
-
+    saveAndLoad();
     renderCard();
     renderFollower();
     renderStorys();
     renderMyProfile(profileName);
 }
 
+
 function renderMyProfile(name) {
     profileName = name;
     myProfile.innerHTML = myProfileTemp(profileName, 'src/img/profile.jpeg');
 }
+
 
 function renderFollower() {
     for (let i = 0; i < user.length; i++) {
@@ -31,21 +32,25 @@ function renderFollower() {
     }
 }
 
+
 function renderStorys() {
     for (let i = 0; i < user.length; i++) {
         storyPanel.innerHTML += storysTemp(i);
     }
 }
 
+
 function renderCard() {
     content.innerHTML = "";
     for (let i = 0; i < posts.length; i++) {
+        load('liked');
         content.innerHTML += cardTemp(i);
-        toggleLike.unshift(false);
         renderComments(i);
+
     }
     setTheme();
 }
+
 
 function renderComments(i) {
     for (let j = 0; j < posts[i].comments.length; j++) {
@@ -60,6 +65,7 @@ function renderCommsInCard(i, auth, comm) {
     allComments.innerHTML += allCommentsTemp(i, auth, comm);
 }
 
+
 function postMsg(id) {
     const textareaInput = document.getElementById(`postComment${id}`);
     let msg = textareaInput.value;
@@ -69,9 +75,11 @@ function postMsg(id) {
         posts[id].commAuth.push(author);
         posts[id].comments.push(msg);
         save('posts', posts);
+
         renderCommsInCard(id, author, msg);
     }
 }
+
 
 function changeProfile() {
     if (profileName === 'Manni') {
@@ -87,17 +95,25 @@ function dontClose(event) {
 /////////////////////////////////////////////// BUTTON FUNCTIONS
 
 function likePost(i) {
-    let likeBtn = document.getElementById(`likeBtn${i}`);
-    toggleLike[i] = !toggleLike[i];
-    if (toggleLike[i]) {
-        likeBtn.src = "src/img/heart_filled.png";
-        changeLikes(i, 'increase')
-    }
-    if (!toggleLike[i]) {
-        likeBtn.src = "src/img/heart_empty.png";
+    //let likeBtn = document.getElementById(`likeBtn${i}`);
+    //toggleLike[i] = !toggleLike[i];
+    if (posts[i].liked === false) {
+        posts[i].likeImg = "src/img/heart_filled.png";
+        console.log(posts[0].likeImg);
+        changeLikes(i, 'increase');
+        posts[i].liked = true;
+    } else if (posts[i].liked === true) {
+        posts[i].likeImg = "src/img/heart_empty.png";
+        console.log(posts[0].likeImg);
         changeLikes(i, 'decrease')
+        posts[i].liked = false;
     }
+
+    renderCard();
+    save('posts', posts); //TODO - FUNKTIONIERT NICHT
+
 }
+
 
 function markPost(i) {
     let markBtn = document.getElementById(`markBtn${i}`);
@@ -106,19 +122,21 @@ function markPost(i) {
     if (!toggleMark[i]) { markBtn.src = "src/img/mark-unfilled.png"; }
 }
 
+
 function changeLikes(i, set) {
     const likes = document.getElementById(`likes${i}`);
     likeHtml = +likes.innerHTML.replaceAll('.', '');
 
     if (set === 'increase') {
-        let sum = likeHtml + 1;
-        likes.innerHTML = sum.toLocaleString('de-DE');
+        posts[i].likes = likeHtml + 1;
+        likes.innerHTML = posts[i].likes = posts[i].likes.toLocaleString('de-DE');
     }
     if (set === 'decrease') {
-        let sum = likeHtml - 1;
-        likes.innerHTML = sum.toLocaleString('de-DE');
+        posts[i].likes = likeHtml - 1;
+        likes.innerHTML = posts[i].likes = posts[i].likes.toLocaleString('de-DE');
     }
 }
+
 
 function follow(id) {
     let follow = document.getElementById(`follow${id}`);
@@ -131,6 +149,7 @@ function follow(id) {
         follow.style.color = '#0095F6';
     }
 }
+
 
 function pageTheme() {
     let pageTheme = document.getElementById("pageTheme");
@@ -145,6 +164,7 @@ function pageTheme() {
         currentTheme = lightmode();
     }
 }
+
 
 function setTheme() {
     if (currentTheme === 'darkmode') { darkmode() }
@@ -164,6 +184,7 @@ function darkmode() {
     return 'darkmode';
 }
 
+
 function lightmode() {
     document.documentElement.style.setProperty('--white', '#fff');
     document.documentElement.style.setProperty('--lightgray', '#ddd');
@@ -177,6 +198,7 @@ function lightmode() {
     return 'lightmode';
 }
 
+
 function showCreatePost(boolean) {
     if (boolean) {
         document.querySelector('.overlayBg').style.display = "flex";
@@ -188,6 +210,7 @@ function showCreatePost(boolean) {
         document.querySelector('.errorMsgHide').classList.remove('errorMsgShow');
     }
 }
+
 
 /////////////////////////////////////////////// FILE UPLOAD
 
@@ -221,6 +244,7 @@ function createPost() {
     }
 }
 
+
 function newPostJson(image, desc) {
     let newPost = {
         'author': `${profileName}`,
@@ -228,7 +252,10 @@ function newPostJson(image, desc) {
         'profileImg': 'src/img/profile.jpeg',
         'image': `${image}`,
         'imgDesc': `${desc}`,
+        'likeImg': 'src/img/heart_empty.png',
         'likes': '0',
+        'liked': false,
+        'marked': false,
         'commAuth': [],
         'comments': [],
     }
@@ -236,9 +263,10 @@ function newPostJson(image, desc) {
     posts.unshift(newPost);
 }
 
+
 function deleteCard(i) {
     posts.splice(i, 1);
-    console.log(i);
+    save('posts', posts);
     renderCard();
 }
 
@@ -249,7 +277,20 @@ function save(keyname, array, i) {
     localStorage.setItem(keyname, JSON.stringify(array));
 }
 
+
 function load(keyname) {
     return JSON.parse(localStorage.getItem(keyname));
+}
+
+
+function saveAndLoad() {
+
+    if (load('posts', posts) != null) {
+        posts = load('posts', posts)
+    }
+    save('posts', posts);
+
+
+
 }
 ////////////////////////////////////////////////////// ALLGEIMEIN

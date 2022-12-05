@@ -5,6 +5,9 @@ let posts = [{
         'image': 'src/img/profile/b1.jpg',
         'imgDesc': 'some stones yk',
         'likes': '999',
+        'likeImg': 'src/img/heart_empty.png',
+        'liked': false,
+        'marked': false,
         'commAuth': ['Jacky', 'Shia LaBeouf'],
         'comments': [
             'Helllooo!',
@@ -19,6 +22,9 @@ let posts = [{
         'image': 'src/img/profile/b3.jpg',
         'imgDesc': 'Sonne, Strand, Portugal☀️🏖️',
         'likes': '1.999',
+        'likeImg': 'src/img/heart_empty.png',
+        'liked': false,
+        'marked': false,
         'commAuth': ['Konstantin', 'Jens Josef'],
         'comments': [
             'Wunderbar!!',
@@ -32,6 +38,9 @@ let posts = [{
         'image': 'src/img/profile/b2.jpg',
         'imgDesc': 'Look at this view! ',
         'likes': '1.342.422',
+        'likeImg': 'src/img/heart_empty.png',
+        'liked': false,
+        'marked': false,
         'commAuth': ['Chantal Lumen'],
         'comments': [
             '🔥🔥🔥'

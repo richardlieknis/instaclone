@@ -21,7 +21,7 @@ function cardTemp(i) {
     </div>
     <div class="cardBtns">
         <div class="left">
-            <img class="setInvert" onclick="likePost(${i})" id="likeBtn${i}" src="src/img/heart_empty.png" />
+            <img class="setInvert" onclick="likePost(${i})" id="likeBtn${i}" src="${posts[i].likeImg}" />
             <img class="setInvert" id="commBtn${i}" src="src/img/comments.png" />
             <img class="setInvert" src="src/img/message.png" />
         </div>
