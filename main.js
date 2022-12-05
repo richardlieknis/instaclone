@@ -76,7 +76,7 @@ function postMsg(id) {
         posts[id].comments.push(msg);
         save('posts', posts);
 
-        renderCommsInCard(id, author, msg);
+        renderCard();
     }
 }
 
