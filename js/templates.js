@@ -106,7 +106,7 @@ function storysTemp(i) {
         <div class="imgBgStory">
             <img class="profileImg" style="width: 55px" src="${user[i].image}" />
         </div>
-        <span>${user[i].name}</span>
+        <span>${user[i].name.substring(0, 9) + "..."}</span>
     </div>
     `;
 }

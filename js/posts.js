@@ -49,22 +49,27 @@ let posts = [{
 ];
 
 let user = [{
-    'name': 'Klaus',
+    'name': 'klaus.weber',
     'image': 'src/img/profile/4.jpg',
     'desc': 'Neu bei Instagram',
     'followed': 'Folgen',
 }, {
-    'name': 'Hans',
+    'name': 'hansio.georgi',
     'image': 'src/img/profile/2.jpg',
     'desc': 'Beliebt',
     'followed': 'Folgen',
 }, {
-    'name': 'Ralph',
+    'name': 'svension.pensa554',
+    'image': 'src/img/profile/nofoto.png',
+    'desc': 'Neu bei Instagram',
+    'followed': 'Folgen',
+}, {
+    'name': 'ralph.laureen',
     'image': 'src/img/profile/3.jpg',
     'desc': 'Rudi ist follower',
     'followed': 'Folgen',
 }, {
-    'name': 'Chantal',
+    'name': 'chanel.chantal',
     'image': 'src/img/profile/1.jpg',
     'desc': 'Neu bei Instagram',
     'followed': 'Folgen',
