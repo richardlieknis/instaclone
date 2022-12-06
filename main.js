@@ -54,15 +54,16 @@ function renderCard() {
 
 function renderComments(i) {
     for (let j = 0; j < posts[i].comments.length; j++) {
-        const comments = posts[i].comments[j];
-        const authors = posts[i].commAuth[j];
-        renderCommsInCard(i, authors, comments);
+        let comments = posts[i].comments[j];
+        let authors = posts[i].commAuth[j];
+        console.log(i, j);
+        renderCommsInCard(i, authors, comments, j);
     }
 }
 
-function renderCommsInCard(i, auth, comm) {
+function renderCommsInCard(i, auth, comm, j) {
     let allComments = document.getElementById(`allComments${i}`);
-    allComments.innerHTML += allCommentsTemp(i, auth, comm);
+    allComments.innerHTML += allCommentsTemp(i, auth, comm, j);
 }
 
 
@@ -266,6 +267,13 @@ function newPostJson(image, desc) {
 function deleteCard(i) {
     posts.splice(i, 1);
     save('posts', posts);
+    renderCard();
+}
+
+function deleteComment(i, j) {
+    posts[i].commAuth.splice(j, 1);
+    posts[i].comments.splice(j, 1);
+    save('posts', posts)
     renderCard();
 }
 

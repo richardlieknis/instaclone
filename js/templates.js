@@ -59,15 +59,15 @@ function cardTemp(i) {
     `;
 }
 
-function allCommentsTemp(i, auth, comm) {
-    return `<div id="commentsDiv${i}" class="comment">
+function allCommentsTemp(i, auth, comm, j) {
+    return `<div id="commentsDiv${j}" class="comment">
                 <div class="oneComment">
                     <div>
                         <span>${auth}</span>
                         <span class="descText">${comm}</span>
                     </div>
                     <div>
-                        <img class="trashImg" onclick="deleteComment()" src="src/img/trash.png">
+                        <img class="trashImg" onclick="deleteComment(${i}, ${j})" src="src/img/trash.png">
                     </div>
                 </div>
                 
