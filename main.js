@@ -54,10 +54,11 @@ function renderCard() {
 
 function renderComments(i) {
     for (let j = 0; j < posts[i].comments.length; j++) {
-        let comments = posts[i].comments[j];
-        let authors = posts[i].commAuth[j];
-        console.log(i, j);
-        renderCommsInCard(i, authors, comments, j);
+        if (j < 4) {
+            const comments = posts[i].comments[j];
+            const authors = posts[i].commAuth[j];
+            renderCommsInCard(i, authors, comments, j);
+        }
     }
 }
 
