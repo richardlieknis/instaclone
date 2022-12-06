@@ -52,16 +52,20 @@ let user = [{
     'name': 'Klaus',
     'image': 'src/img/profile/4.jpg',
     'desc': 'Neu bei Instagram',
+    'followed': 'Folgen',
 }, {
     'name': 'Hans',
     'image': 'src/img/profile/2.jpg',
     'desc': 'Beliebt',
+    'followed': 'Folgen',
 }, {
     'name': 'Ralph',
     'image': 'src/img/profile/3.jpg',
     'desc': 'Rudi ist follower',
+    'followed': 'Folgen',
 }, {
     'name': 'Chantal',
     'image': 'src/img/profile/1.jpg',
     'desc': 'Neu bei Instagram',
+    'followed': 'Folgen',
 }, ]

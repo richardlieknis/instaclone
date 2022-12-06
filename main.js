@@ -3,8 +3,6 @@ const storyPanel = document.getElementById('storyPanel');
 const myProfile = document.getElementById('myProfile');
 const content = document.getElementById('content');
 
-
-//let toggleLike = [];
 let toggleMark = [];
 let toggleThem = false;
 let profileName = 'Manni';
@@ -29,6 +27,14 @@ function renderMyProfile(name) {
 function renderFollower() {
     for (let i = 0; i < user.length; i++) {
         sugProfiles.innerHTML += followerTemp(i);
+        changeFollowedColor(i)
+    }
+}
+
+function changeFollowedColor(i) {
+    let followCard = document.getElementById(`follow${i}`);
+    if (followCard.innerHTML === 'Gefolgt') {
+        followCard.style.color = 'var(--lightgray)';
     }
 }
 
@@ -54,7 +60,7 @@ function renderCard() {
 
 function renderComments(i) {
     for (let j = 0; j < posts[i].comments.length; j++) {
-        if (j < 4) {
+        if (j < 3) {
             const comments = posts[i].comments[j];
             const authors = posts[i].commAuth[j];
             renderCommsInCard(i, authors, comments, j);
@@ -144,11 +150,15 @@ function follow(id) {
 
     if (follow.innerHTML === 'Folgen') {
         follow.innerHTML = 'Gefolgt';
+        user[id].followed = 'Gefolgt';
         follow.style.color = 'var(--lightgray)';
     } else {
         follow.innerHTML = 'Folgen';
+        user[id].followed = 'Folgen';
         follow.style.color = '#0095F6';
     }
+
+    save('user', user);
 }
 
 
@@ -296,7 +306,11 @@ function saveAndLoad() {
     if (load('posts', posts) != null) {
         posts = load('posts', posts)
     }
+    if (load('user', user) != null) {
+        user = load('user', user)
+    }
     save('posts', posts);
+    save('user', user);
 
 
 

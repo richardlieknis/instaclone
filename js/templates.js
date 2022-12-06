@@ -67,7 +67,7 @@ function allCommentsTemp(i, auth, comm, j) {
                         <span class="descText">${comm}</span>
                     </div>
                     <div>
-                        <img class="trashImg" onclick="deleteComment(${i}, ${j})" src="src/img/trash.png">
+                        <img class="trashImg setInvert" onclick="deleteComment(${i}, ${j})" src="src/img/trash.png">
                     </div>
                 </div>
                 
@@ -95,7 +95,7 @@ function followerTemp(i) {
                 <span style="color: #c0c0c0; font-family: sans-serif;">${user[i].desc}</span>
             </div>
         </div>
-        <span id="follow${i}" class="profileLink" onclick="follow(${i})">Folgen</span>
+        <span id="follow${i}" class="profileLink" onclick="follow(${i})">${user[i].followed}</span>
     </div>
     `;
 }
