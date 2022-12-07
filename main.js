@@ -285,6 +285,7 @@ function newPostJson(image, desc) {
         'likeImg': 'src/img/heart_empty.png',
         'likes': '0',
         'liked': false,
+        'markImg': 'src/img/mark-unfilled.png',
         'marked': false,
         'commAuth': [],
         'comments': [],

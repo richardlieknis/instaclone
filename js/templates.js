@@ -126,8 +126,8 @@ function openCommentsTemp(i) {
                     </div>
                 </div>
                 <div class="right">⦁⦁⦁
-                    <div class="dropdownCard ">
-                        <div class="cardMenuBtn deactivated ">TEILEN</div>
+                    <div class="dropdownCard">
+                        <div class="cardMenuBtn deactivated">TEILEN</div>
                     </div>
                 </div>
             </div>
