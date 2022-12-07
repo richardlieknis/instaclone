@@ -3,7 +3,6 @@ const storyPanel = document.getElementById('storyPanel');
 const myProfile = document.getElementById('myProfile');
 const content = document.getElementById('content');
 
-let toggleMark = [];
 let toggleThem = false;
 let profileName = 'Manni';
 let currentTheme = lightmode();
@@ -51,7 +50,7 @@ function renderStorys() {
 function renderCard() {
     content.innerHTML = "";
     for (let i = 0; i < posts.length; i++) {
-        load('liked');
+        //load('liked');
         content.innerHTML += cardTemp(i);
         renderComments(i);
 
@@ -123,27 +122,31 @@ function likePost(i) {
     //toggleLike[i] = !toggleLike[i];
     if (posts[i].liked === false) {
         posts[i].likeImg = "src/img/heart_filled.png";
-        console.log(posts[0].likeImg);
         changeLikes(i, 'increase');
         posts[i].liked = true;
     } else if (posts[i].liked === true) {
         posts[i].likeImg = "src/img/heart_empty.png";
-        console.log(posts[0].likeImg);
         changeLikes(i, 'decrease')
         posts[i].liked = false;
     }
-
+    save('posts', posts);
     renderCard();
-    save('posts', posts); //TODO - FUNKTIONIERT NICHT
+
 
 }
 
 
 function markPost(i) {
-    let markBtn = document.getElementById(`markBtn${i}`);
-    toggleMark[i] = !toggleMark[i];
-    if (toggleMark[i]) { markBtn.src = "src/img/mark-filled.png"; }
-    if (!toggleMark[i]) { markBtn.src = "src/img/mark-unfilled.png"; }
+    if (!posts[i].marked) {
+        posts[i].markImg = "src/img/mark-filled.png";
+        posts[i].marked = true;
+    } else if (posts[i].marked) {
+        posts[i].markImg = "src/img/mark-unfilled.png";
+        posts[i].marked = false;
+    }
+    save('posts', posts);
+    renderCard();
+
 }
 
 

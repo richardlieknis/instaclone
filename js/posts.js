@@ -7,6 +7,7 @@ let posts = [{
         'likes': '999',
         'likeImg': 'src/img/heart_empty.png',
         'liked': false,
+        'markImg': 'src/img/mark-unfilled.png',
         'marked': false,
         'commAuth': ['Jacky', 'Shia LaBeouf'],
         'comments': [
@@ -24,6 +25,7 @@ let posts = [{
         'likes': '1.999',
         'likeImg': 'src/img/heart_empty.png',
         'liked': false,
+        'markImg': 'src/img/mark-unfilled.png',
         'marked': false,
         'commAuth': ['Konstantin', 'Jens Josef'],
         'comments': [
@@ -40,6 +42,7 @@ let posts = [{
         'likes': '1.342.422',
         'likeImg': 'src/img/heart_empty.png',
         'liked': false,
+        'markImg': 'src/img/mark-unfilled.png',
         'marked': false,
         'commAuth': ['Chantal Lumen'],
         'comments': [

@@ -26,7 +26,7 @@ function cardTemp(i) {
             <img class="setInvert" src="src/img/message.png" />
         </div>
         <div class="right">
-            <img class="setInvert" onclick="markPost(${i})" id="markBtn${i}" src="src/img/mark-unfilled.png" />
+            <img class="setInvert" onclick="markPost(${i})" id="markBtn${i}" src="${posts[i].markImg}" />
         </div>
     </div>
     <div class="cardLikes">
