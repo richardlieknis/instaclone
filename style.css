@@ -38,6 +38,10 @@ body {
     display: none;
 }
 
+.d-noneImp {
+    display: none !important;
+}
+
 
 /* ///////////////////////// NAVIGATION /////////////////////////  */
 
@@ -693,4 +697,53 @@ input[type="file"] {
 
 .errorMsgShow {
     display: block !important;
+}
+
+.overlayComments {
+    background-color: #1119;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.commentsComms {
+    padding: 15px 10px;
+}
+
+.overlay-content {
+    background-color: var(--white);
+    width: 90%;
+    height: 70%;
+    display: flex;
+}
+
+.overlay-content .commImage {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    object-fit: contain;
+    background-color: #111;
+}
+
+.comment-box {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.headerComms img {
+    width: 40px;
+    border-radius: 100%;
+}
+
+.comment-box input {
+    outline: none;
+    padding: 15px 5px;
+    border: 0px;
+    width: 100%;
+    border-top: 1px solid var(--lightgray);
 }

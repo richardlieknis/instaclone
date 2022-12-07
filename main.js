@@ -7,6 +7,8 @@ let toggleMark = [];
 let toggleThem = false;
 let profileName = 'Manni';
 let currentTheme = lightmode();
+let commOpen = false;
+
 
 function renderContent() {
     content.innerHTML = '';
@@ -73,7 +75,7 @@ function renderCommsInCard(i, auth, comm, j) {
     allComments.innerHTML += allCommentsTemp(i, auth, comm, j);
 }
 
-
+// Post Message in Card Container
 function postMsg(id) {
     const textareaInput = document.getElementById(`postComment${id}`);
     let msg = textareaInput.value;
@@ -84,6 +86,21 @@ function postMsg(id) {
         posts[id].comments.push(msg);
         save('posts', posts);
         renderCard();
+    }
+}
+
+// Post Message in Comment Container
+function postMsgBox(id) {
+    const textareaInput = document.getElementById(`postCommentBox${id}`);
+    let msg = textareaInput.value;
+    let author = profileName;
+    if (msg.length > 0) {
+        textareaInput.value = '';
+        posts[id].commAuth.push(author);
+        posts[id].comments.push(msg);
+        save('posts', posts);
+        renderCard();
+        openComments(id);
     }
 }
 
@@ -222,7 +239,6 @@ function showCreatePost(boolean) {
     }
 }
 
-
 /////////////////////////////////////////////// FILE UPLOAD
 
 const imgInput = document.getElementById('imageInput');
@@ -286,10 +302,37 @@ function deleteComment(i, j) {
     posts[i].comments.splice(j, 1);
     save('posts', posts)
     renderCard();
+    if (commOpen) {
+        openComments(i);
+    }
 }
 
-////////!SECTION
 
+function openComments(i) {
+    commOpen = true;
+    const allComments = document.getElementById("showAllComments");
+
+    allComments.classList.remove('d-noneImp');
+    allComments.innerHTML = "";
+    allComments.innerHTML = openCommentsTemp(i);
+
+    for (let j = 0; j < posts[i].comments.length; j++) {
+        let allCommentsBox = document.getElementById(`allCommentsBox${i}`);
+        let comm = posts[i].comments[j];
+        let auth = posts[i].commAuth[j];
+        allCommentsBox.innerHTML += allCommentsTemp(i, auth, comm, j);
+    }
+
+}
+
+
+function closeComments(i) {
+    commOpen = false;
+    const allComments = document.getElementById("showAllComments");
+    allComments.classList.add('d-noneImp');
+}
+
+// SAVE AND LOAD
 
 function save(keyname, array, i) {
     localStorage.setItem(keyname, JSON.stringify(array));
@@ -302,7 +345,6 @@ function load(keyname) {
 
 
 function saveAndLoad() {
-
     if (load('posts', posts) != null) {
         posts = load('posts', posts)
     }
@@ -311,8 +353,4 @@ function saveAndLoad() {
     }
     save('posts', posts);
     save('user', user);
-
-
-
 }
-////////////////////////////////////////////////////// ALLGEIMEIN
